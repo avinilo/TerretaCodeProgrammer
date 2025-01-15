@@ -1,0 +1,15 @@
+# Configurar conversión de fin de línea
+* text=auto
+
+# Excluir archivos binarios de la conversión de fin de línea
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
