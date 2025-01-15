@@ -35,11 +35,11 @@ const tailwindReset = "/assets/tailwind-compat-Bwh-BmjE.css";
 const chalk = new Chalk({ level: 3 });
 let currentLevel = "info";
 const logger$4 = {
-  trace: (...messages) => log("trace", void 0, messages),
-  debug: (...messages) => log("debug", void 0, messages),
-  info: (...messages) => log("info", void 0, messages),
-  warn: (...messages) => log("warn", void 0, messages),
-  error: (...messages) => log("error", void 0, messages),
+  trace: (...messages) => log("trace", undefined, messages),
+  debug: (...messages) => log("debug", undefined, messages),
+  info: (...messages) => log("info", undefined, messages),
+  warn: (...messages) => log("warn", undefined, messages),
+  error: (...messages) => log("error", undefined, messages),
   setLevel
 };
 function createScopedLogger(scope) {
@@ -387,7 +387,7 @@ class BaseProvider {
     let settingsBaseUrl = providerSettings?.baseUrl;
     const manager = LLMManager.getInstance();
     if (settingsBaseUrl && settingsBaseUrl.length == 0) {
-      settingsBaseUrl = void 0;
+      settingsBaseUrl = undefined;
     }
     const baseUrlKey = this.config.baseUrlKey || defaultBaseUrlKey;
     let baseUrl = settingsBaseUrl || serverEnv?.[baseUrlKey] || process?.env?.[baseUrlKey] || manager.env?.[baseUrlKey] || this.config.baseUrl;
@@ -408,7 +408,7 @@ class BaseProvider {
     const cacheKey = this.cachedDynamicModels.cacheId;
     const generatedCacheKey = this.getDynamicModelsCacheKey(options);
     if (cacheKey !== generatedCacheKey) {
-      this.cachedDynamicModels = void 0;
+      this.cachedDynamicModels = undefined;
       return null;
     }
     return this.cachedDynamicModels.models;
@@ -959,7 +959,7 @@ class OpenRouterProvider extends BaseProvider {
 
 class OpenAILikeProvider extends BaseProvider {
   name = "OpenAILike";
-  getApiKeyLink = void 0;
+  getApiKeyLink = undefined;
   config = {
     baseUrlKey: "OPENAI_LIKE_API_BASE_URL",
     apiTokenKey: "OPENAI_LIKE_API_KEY"
@@ -2722,7 +2722,7 @@ class SwitchableStream extends TransformStream {
         controllerRef = controller;
       }
     });
-    if (controllerRef === void 0) {
+    if (controllerRef === undefined) {
       throw new Error("Controller not properly initialized");
     }
     this._controller = controllerRef;
@@ -3022,7 +3022,7 @@ const APIKeyManager = ({ provider, apiKey, setApiKey }) => {
     setIsEditing(false);
   }, [provider.name]);
   const checkEnvApiKey = useCallback(async () => {
-    if (providerEnvKeyStatusCache[provider.name] !== void 0) {
+    if (providerEnvKeyStatusCache[provider.name] !== undefined) {
       setIsEnvKeySet(providerEnvKeyStatusCache[provider.name]);
       return;
     }
@@ -3803,7 +3803,7 @@ const LoadingOverlay = ({
       }
     ),
     /* @__PURE__ */ jsx("p", { className: "text-lg text-Terretacode-elements-textTertiary", children: message }),
-    progress !== void 0 && /* @__PURE__ */ jsxs("div", { className: "w-64 flex flex-col gap-2", children: [
+    progress !== undefined && /* @__PURE__ */ jsxs("div", { className: "w-64 flex flex-col gap-2", children: [
       /* @__PURE__ */ jsx("div", { className: "w-full h-2 bg-Terretacode-elements-background-depth-1 rounded-full overflow-hidden", children: /* @__PURE__ */ jsx(
         "div",
         {
@@ -4196,7 +4196,7 @@ const BaseChat = React.forwardRef(
     const [transcript, setTranscript] = useState("");
     const [isModelLoading, setIsModelLoading] = useState("all");
     const getProviderSettings = useCallback(() => {
-      let providerSettings = void 0;
+      let providerSettings = undefined;
       try {
         const savedProviderSettings = Cookies.get("providers");
         if (savedProviderSettings) {
@@ -4254,7 +4254,7 @@ const BaseChat = React.forwardRef(
         }).catch((error) => {
           console.error("Error initializing model list:", error);
         }).finally(() => {
-          setIsModelLoading(void 0);
+          setIsModelLoading(undefined);
         });
       }
     }, [providerList, provider]);
@@ -4262,7 +4262,7 @@ const BaseChat = React.forwardRef(
       const newApiKeys = { ...apiKeys, [providerName]: apiKey };
       setApiKeys(newApiKeys);
       Cookies.set("apiKeys", JSON.stringify(newApiKeys));
-      const provider2 = LLMManager.getInstance(__vite_import_meta_env__ || process.env || {}).getProvider(providerName);
+      const provider2 = LLMManager.getInstance(__vite_import_meta_env__).getProvider(providerName);
       if (provider2 && provider2.getDynamicModels) {
         setIsModelLoading(providerName);
         try {
@@ -4280,7 +4280,7 @@ const BaseChat = React.forwardRef(
         } catch (error) {
           console.error("Error loading dynamic models:", error);
         }
-        setIsModelLoading(void 0);
+        setIsModelLoading(undefined);
       }
     };
     const startListening = () => {
@@ -4821,7 +4821,7 @@ const route9 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   meta
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const serverManifest = {'entry':{'module':'/assets/entry.client-u8qpcG1s.js','imports':['/assets/components-Bw8-jeb5.js'],'css':[]},'routes':{'root':{'id':'root','parentId':undefined,'path':'','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/root-BzV2RjQF.js','imports':['/assets/components-Bw8-jeb5.js','/assets/stripIndent-BntaON4O.js'],'css':['/assets/root-Bnr17WVN.css']},'routes/api.check-env-key':{'id':'routes/api.check-env-key','parentId':'root','path':'api/check-env-key','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.check-env-key-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.git-proxy.$':{'id':'routes/api.git-proxy.$','parentId':'root','path':'api/git-proxy/*','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.git-proxy._-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.enhancer':{'id':'routes/api.enhancer','parentId':'root','path':'api/enhancer','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.enhancer-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.llmcall':{'id':'routes/api.llmcall','parentId':'root','path':'api/llmcall','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.llmcall-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.models':{'id':'routes/api.models','parentId':'root','path':'api/models','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.models-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.chat':{'id':'routes/api.chat','parentId':'root','path':'api/chat','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.chat-l0sNRNKZ.js','imports':[],'css':[]},'routes/chat.$id':{'id':'routes/chat.$id','parentId':'root','path':'chat/:id','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/chat._id-Ds-BPSnP.js','imports':['/assets/_index-HTR1GvCe.js','/assets/components-Bw8-jeb5.js','/assets/index-D29qeNSQ.js','/assets/stripIndent-BntaON4O.js'],'css':['/assets/index-XhibwUYD.css']},'routes/_index':{'id':'routes/_index','parentId':'root','path':undefined,'index':true,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/_index-HTR1GvCe.js','imports':['/assets/components-Bw8-jeb5.js','/assets/index-D29qeNSQ.js','/assets/stripIndent-BntaON4O.js'],'css':['/assets/index-XhibwUYD.css']},'routes/git':{'id':'routes/git','parentId':'root','path':'git','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/git-BFmzcZvp.js','imports':['/assets/components-Bw8-jeb5.js','/assets/index-D29qeNSQ.js','/assets/stripIndent-BntaON4O.js'],'css':['/assets/index-XhibwUYD.css']}},'url':'/assets/manifest-c1ba2c7f.js','version':'c1ba2c7f'};
+const serverManifest = {'entry':{'module':'/assets/entry.client-DyCMvMyk.js','imports':['/assets/components-CPkOdgym.js'],'css':[]},'routes':{'root':{'id':'root','parentId':undefined,'path':'','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/root-BhBerjt0.js','imports':['/assets/components-CPkOdgym.js','/assets/stripIndent-Cq3xGT5m.js'],'css':['/assets/root-Bnr17WVN.css']},'routes/api.check-env-key':{'id':'routes/api.check-env-key','parentId':'root','path':'api/check-env-key','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.check-env-key-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.git-proxy.$':{'id':'routes/api.git-proxy.$','parentId':'root','path':'api/git-proxy/*','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.git-proxy._-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.enhancer':{'id':'routes/api.enhancer','parentId':'root','path':'api/enhancer','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.enhancer-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.llmcall':{'id':'routes/api.llmcall','parentId':'root','path':'api/llmcall','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.llmcall-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.models':{'id':'routes/api.models','parentId':'root','path':'api/models','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.models-l0sNRNKZ.js','imports':[],'css':[]},'routes/api.chat':{'id':'routes/api.chat','parentId':'root','path':'api/chat','index':undefined,'caseSensitive':undefined,'hasAction':true,'hasLoader':false,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/api.chat-l0sNRNKZ.js','imports':[],'css':[]},'routes/chat.$id':{'id':'routes/chat.$id','parentId':'root','path':'chat/:id','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/chat._id-DE7Eerpp.js','imports':['/assets/_index-DLgu09xI.js','/assets/components-CPkOdgym.js','/assets/index-CGBtkmMC.js','/assets/stripIndent-Cq3xGT5m.js'],'css':['/assets/index-XhibwUYD.css']},'routes/_index':{'id':'routes/_index','parentId':'root','path':undefined,'index':true,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/_index-DLgu09xI.js','imports':['/assets/components-CPkOdgym.js','/assets/index-CGBtkmMC.js','/assets/stripIndent-Cq3xGT5m.js'],'css':['/assets/index-XhibwUYD.css']},'routes/git':{'id':'routes/git','parentId':'root','path':'git','index':undefined,'caseSensitive':undefined,'hasAction':false,'hasLoader':true,'hasClientAction':false,'hasClientLoader':false,'hasErrorBoundary':false,'module':'/assets/git-BzxWIM20.js','imports':['/assets/components-CPkOdgym.js','/assets/index-CGBtkmMC.js','/assets/stripIndent-Cq3xGT5m.js'],'css':['/assets/index-XhibwUYD.css']}},'url':'/assets/manifest-747fd973.js','version':'747fd973'};
 
 /**
        * `mode` is only relevant for the old Remix compiler but

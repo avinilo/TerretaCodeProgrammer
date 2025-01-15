@@ -4,9 +4,9 @@ import { defineConfig, type ViteDevServer } from 'vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import * as dotenv from 'dotenv';
 import { execSync } from 'child_process';
-import { viteStaticCopy } from 'vite-plugin-static-copy'; // Uso correcto del plugin estático de copia
 
 dotenv.config();
 
@@ -20,6 +20,8 @@ const getGitHash = () => {
 };
 
 export default defineConfig((config) => {
+  const isProduction = config.mode === 'production';
+
   return {
     define: {
       __COMMIT_HASH: JSON.stringify(getGitHash()),
@@ -27,12 +29,23 @@ export default defineConfig((config) => {
     },
     build: {
       target: 'esnext',
+      outDir: 'build/client',
+      rollupOptions: {
+        output: {
+          manualChunks: undefined, // Evitar fragmentación innecesaria
+        },
+      },
+    },
+    server: {
+      fs: {
+        strict: false, // Permitir el acceso a archivos fuera de la raíz del proyecto
+      },
     },
     plugins: [
       nodePolyfills({
         include: ['path', 'buffer', 'process'],
       }),
-      config.mode !== 'test' && remixCloudflareDevProxy(),
+      !isProduction && remixCloudflareDevProxy(),
       remixVitePlugin({
         future: {
           v3_fetcherPersist: true,
@@ -47,14 +60,20 @@ export default defineConfig((config) => {
         targets: [
           {
             src: '_redirects',
-            dest: './', // Asegura que se copie en el directorio de publicación
+            dest: './', // Asegura que el archivo _redirects se copie al directorio de salida
           },
         ],
       }),
       chrome129IssuePlugin(),
-      config.mode === 'production' && optimizeCssModules({ apply: 'build' }),
+      isProduction && optimizeCssModules({ apply: 'build' }),
     ],
-    envPrefix: ["VITE_", "OPENAI_LIKE_API_BASE_URL", "OLLAMA_API_BASE_URL", "LMSTUDIO_API_BASE_URL", "TOGETHER_API_BASE_URL"],
+    envPrefix: [
+      'VITE_',
+      'OPENAI_LIKE_API_BASE_URL',
+      'OLLAMA_API_BASE_URL',
+      'LMSTUDIO_API_BASE_URL',
+      'TOGETHER_API_BASE_URL',
+    ],
     css: {
       preprocessorOptions: {
         scss: {
@@ -78,7 +97,13 @@ function chrome129IssuePlugin() {
           if (version === 129) {
             res.setHeader('content-type', 'text/html');
             res.end(
-              '<body><h1>Please use Chrome Canary for testing.</h1><p>Chrome 129 has an issue with JavaScript modules & Vite local development, see <a href="https://Terretacode.com">for more information.</a></p><p><b>Note:</b> This only impacts <u>local development</u>. `pnpm run build` and `pnpm run start` will work fine in this browser.</p></body>',
+              `<body>
+                <h1>Please use Chrome Canary for testing.</h1>
+                <p>Chrome 129 has an issue with JavaScript modules & Vite local development. 
+                   See <a href="https://Terretacode.com">for more information.</a></p>
+                <p><b>Note:</b> This only impacts <u>local development</u>. 
+                   \`pnpm run build\` and \`pnpm run start\` will work fine in this browser.</p>
+              </body>`,
             );
 
             return;

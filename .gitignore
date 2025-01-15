@@ -41,3 +41,6 @@ site
 
 # commit file ignore
 app/commit.json
+
+# Local Netlify folder
+.netlify

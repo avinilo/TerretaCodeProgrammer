@@ -13,3 +13,4 @@
 *.ttf binary
 *.eot binary
 *.otf binary
+* text=auto
