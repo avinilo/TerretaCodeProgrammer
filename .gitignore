@@ -24,7 +24,8 @@ dist-ssr
 
 /.history
 /.cache
-/build
+# Eliminado para incluir la carpeta build
+# /build
 .env.local
 .env
 .dev.vars
