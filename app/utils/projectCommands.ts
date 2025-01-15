@@ -69,11 +69,11 @@ export function createCommandsMessage(commands: ProjectCommands): Message | null
   return {
     role: 'assistant',
     content: `
-<boltArtifact id="project-setup" title="Project Setup">
-<boltAction type="shell">
+<TerretacodeArtifact id="project-setup" title="Project Setup">
+<TerretacodeAction type="shell">
 ${commands.setupCommand}
-</boltAction>
-</boltArtifact>${commands.followupMessage ? `\n\n${commands.followupMessage}` : ''}`,
+</TerretacodeAction>
+</TerretacodeArtifact>${commands.followupMessage ? `\n\n${commands.followupMessage}` : ''}`,
     id: generateId(),
     createdAt: new Date(),
   };

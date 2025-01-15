@@ -17,12 +17,12 @@ export class PromptLibrary {
     }
   > = {
     default: {
-      label: 'Default Prompt',
+      label: 'Prompt Predeterminado',
       description: 'This is the battle tested default system Prompt',
       get: (options) => getSystemPrompt(options.cwd),
     },
     optimized: {
-      label: 'Optimized Prompt (experimental)',
+      label: 'Prompt Optimizado (Experimental)',
       description: 'an Experimental version of the prompt for lower token usage',
       get: (options) => optimized(options),
     },

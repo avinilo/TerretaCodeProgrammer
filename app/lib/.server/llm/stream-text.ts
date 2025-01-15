@@ -49,9 +49,9 @@ type Dirent = File | Folder;
 
 export type FileMap = Record<string, Dirent | undefined>;
 
-export function simplifyBoltActions(input: string): string {
-  // Using regex to match boltAction tags that have type="file"
-  const regex = /(<boltAction[^>]*type="file"[^>]*>)([\s\S]*?)(<\/boltAction>)/g;
+export function simplifyTerretacodeActions(input: string): string {
+  // Using regex to match TerretacodeAction tags that have type="file"
+  const regex = /(<TerretacodeAction[^>]*type="file"[^>]*>)([\s\S]*?)(<\/TerretacodeAction>)/g;
 
   // Replace each matching occurrence
   return input.replace(regex, (_0, openingTag, _2, closingTag) => {
@@ -172,7 +172,7 @@ export async function streamText(props: {
       let content = message.content;
 
       if (contextOptimization) {
-        content = simplifyBoltActions(content);
+        content = simplifyTerretacodeActions(content);
       }
 
       return { ...message, content };

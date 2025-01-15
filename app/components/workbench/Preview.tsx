@@ -218,16 +218,16 @@ export const Preview = memo(() => {
       {isPortDropdownOpen && (
         <div className="z-iframe-overlay w-full h-full absolute" onClick={() => setIsPortDropdownOpen(false)} />
       )}
-      <div className="bg-bolt-elements-background-depth-2 p-2 flex items-center gap-1.5">
+      <div className="bg-Terretacode-elements-background-depth-2 p-2 flex items-center gap-1.5">
         <IconButton icon="i-ph:arrow-clockwise" onClick={reloadPreview} />
         <IconButton
           icon="i-ph:selection"
           onClick={() => setIsSelectionMode(!isSelectionMode)}
-          className={isSelectionMode ? 'bg-bolt-elements-background-depth-3' : ''}
+          className={isSelectionMode ? 'bg-Terretacode-elements-background-depth-3' : ''}
         />
         <div
-          className="flex items-center gap-1 flex-grow bg-bolt-elements-preview-addressBar-background border border-bolt-elements-borderColor text-bolt-elements-preview-addressBar-text rounded-full px-3 py-1 text-sm hover:bg-bolt-elements-preview-addressBar-backgroundHover hover:focus-within:bg-bolt-elements-preview-addressBar-backgroundActive focus-within:bg-bolt-elements-preview-addressBar-backgroundActive
-        focus-within-border-bolt-elements-borderColorActive focus-within:text-bolt-elements-preview-addressBar-textActive"
+          className="flex items-center gap-1 flex-grow bg-Terretacode-elements-preview-addressBar-background border border-Terretacode-elements-borderColor text-Terretacode-elements-preview-addressBar-text rounded-full px-3 py-1 text-sm hover:bg-Terretacode-elements-preview-addressBar-backgroundHover hover:focus-within:bg-Terretacode-elements-preview-addressBar-backgroundActive focus-within:bg-Terretacode-elements-preview-addressBar-backgroundActive
+        focus-within-border-Terretacode-elements-borderColorActive focus-within:text-Terretacode-elements-preview-addressBar-textActive"
         >
           <input
             title="URL"
@@ -276,7 +276,7 @@ export const Preview = memo(() => {
         />
       </div>
 
-      <div className="flex-1 border-t border-bolt-elements-borderColor flex justify-center items-center overflow-auto">
+      <div className="flex-1 border-t border-Terretacode-elements-borderColor flex justify-center items-center overflow-auto">
         <div
           style={{
             width: isDeviceModeOn ? `${widthPercent}%` : '100%',

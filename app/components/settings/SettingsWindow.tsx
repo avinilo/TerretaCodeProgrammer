@@ -25,10 +25,10 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('data');
 
   const tabs: { id: TabType; label: string; icon: string; component?: ReactElement }[] = [
-    { id: 'data', label: 'Data', icon: 'i-ph:database', component: <DataTab /> },
-    { id: 'providers', label: 'Providers', icon: 'i-ph:key', component: <ProvidersTab /> },
-    { id: 'connection', label: 'Connection', icon: 'i-ph:link', component: <ConnectionsTab /> },
-    { id: 'features', label: 'Features', icon: 'i-ph:star', component: <FeaturesTab /> },
+    { id: 'data', label: 'Datos', icon: 'i-ph:database', component: <DataTab /> },
+    { id: 'providers', label: 'Proveedores', icon: 'i-ph:key', component: <ProvidersTab /> },
+    { id: 'connection', label: 'Conexiones', icon: 'i-ph:link', component: <ConnectionsTab /> },
+    { id: 'features', label: 'Funciones', icon: 'i-ph:star', component: <FeaturesTab /> },
     ...(debug
       ? [
           {
@@ -65,7 +65,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
         </RadixDialog.Overlay>
         <RadixDialog.Content aria-describedby={undefined} asChild>
           <motion.div
-            className="fixed top-[50%] left-[50%] z-max h-[85vh] w-[90vw] max-w-[900px] translate-x-[-50%] translate-y-[-50%] border border-bolt-elements-borderColor rounded-lg shadow-lg focus:outline-none overflow-hidden"
+            className="fixed top-[50%] left-[50%] z-max h-[85vh] w-[90vw] max-w-[900px] translate-x-[-50%] translate-y-[-50%] border border-Terretacode-elements-borderColor rounded-lg shadow-lg focus:outline-none overflow-hidden"
             initial="closed"
             animate="open"
             exit="closed"
@@ -74,12 +74,12 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
             <div className="flex h-full">
               <div
                 className={classNames(
-                  'w-48 border-r border-bolt-elements-borderColor bg-bolt-elements-background-depth-1 p-4 flex flex-col justify-between',
+                  'w-48 border-r border-Terretacode-elements-borderColor bg-Terretacode-elements-background-depth-1 p-4 flex flex-col justify-between',
                   styles['settings-tabs'],
                 )}
               >
-                <DialogTitle className="flex-shrink-0 text-lg font-semibold text-bolt-elements-textPrimary mb-2">
-                  Settings
+                <DialogTitle className="flex-shrink-0 text-lg font-semibold text-Terretacode-elements-textPrimary mb-2">
+                  Ajustes
                 </DialogTitle>
                 {tabs.map((tab) => (
                   <button
@@ -93,7 +93,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
                 ))}
                 <div className="mt-auto flex flex-col gap-2">
                   <a
-                    href="https://github.com/stackblitz-labs/bolt.diy"
+                    href="https://Terretacode.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classNames(styles['settings-button'], 'flex items-center gap-2')}
@@ -102,18 +102,18 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
                     GitHub
                   </a>
                   <a
-                    href="https://stackblitz-labs.github.io/bolt.diy/"
+                    href="https://Terretacode.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classNames(styles['settings-button'], 'flex items-center gap-2')}
                   >
                     <div className="i-ph:book" />
-                    Docs
+                    Terretacode
                   </a>
                 </div>
               </div>
 
-              <div className="flex-1 flex flex-col p-8 pt-10 bg-bolt-elements-background-depth-2">
+              <div className="flex-1 flex flex-col p-8 pt-10 bg-Terretacode-elements-background-depth-2">
                 <div className="flex-1 overflow-y-auto">{tabs.find((tab) => tab.id === activeTab)?.component}</div>
               </div>
             </div>

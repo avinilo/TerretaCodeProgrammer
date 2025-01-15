@@ -91,9 +91,9 @@ export const ImportFolderButton: React.FC<ImportFolderButtonProps> = ({ classNam
       });
       toast.success('Folder imported successfully');
     } catch (error) {
-      logStore.logError('Failed to import folder', error, { folderName });
-      console.error('Failed to import folder:', error);
-      toast.error('Failed to import folder');
+      logStore.logError('Failed to Importar Carpeta', error, { folderName });
+      console.error('Failed to Importar Carpeta:', error);
+      toast.error('Failed to Importar Carpeta');
     } finally {
       setIsLoading(false);
       toast.dismiss(loadingToast);
@@ -121,7 +121,7 @@ export const ImportFolderButton: React.FC<ImportFolderButtonProps> = ({ classNam
         disabled={isLoading}
       >
         <div className="i-ph:upload-simple" />
-        {isLoading ? 'Importing...' : 'Import Folder'}
+        {isLoading ? 'Importing...' : 'Importar Carpeta'}
       </button>
     </>
   );

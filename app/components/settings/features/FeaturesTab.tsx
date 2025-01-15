@@ -26,37 +26,40 @@ export default function FeaturesTab() {
   };
 
   return (
-    <div className="p-4 bg-bolt-elements-bg-depth-2 border border-bolt-elements-borderColor rounded-lg mb-4">
+    <div className="p-4 bg-Terretacode-elements-bg-depth-2 border border-Terretacode-elements-borderColor rounded-lg mb-4">
       <div className="mb-6">
-        <h3 className="text-lg font-medium text-bolt-elements-textPrimary mb-4">Optional Features</h3>
+        <h3 className="text-lg font-medium text-Terretacode-elements-textPrimary mb-4">Funciones Opcionales</h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-bolt-elements-textPrimary">Debug Features</span>
+            <span className="text-Terretacode-elements-textPrimary">Funciones de Depuración</span>
             <Switch className="ml-auto" checked={debug} onCheckedChange={handleToggle} />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-bolt-elements-textPrimary">Use Main Branch</span>
-              <p className="text-xs text-bolt-elements-textTertiary">
-                Check for updates against the main branch instead of stable
+              <span className="text-Terretacode-elements-textPrimary">Usar la Rama Principal</span>
+              <p className="text-xs text-Terretacode-elements-textTertiary">
+                Buscar actualizaciones en la rama principal en lugar de la versión estable.
               </p>
             </div>
             <Switch className="ml-auto" checked={isLatestBranch} onCheckedChange={enableLatestBranch} />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-bolt-elements-textPrimary">Auto Select Code Template</span>
-              <p className="text-xs text-bolt-elements-textTertiary">
-                Let Bolt select the best starter template for your project.
+              <span className="text-Terretacode-elements-textPrimary">
+                Seleccionar automáticamente la plantilla de código.
+              </span>
+              <p className="text-xs text-Terretacode-elements-textTertiary">
+                Permite que Terretacode seleccione la mejor plantilla inicial para tu proyecto.
               </p>
             </div>
             <Switch className="ml-auto" checked={autoSelectTemplate} onCheckedChange={setAutoSelectTemplate} />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-bolt-elements-textPrimary">Use Context Optimization</span>
-              <p className="text-sm text-bolt-elements-textSecondary">
-                redact file contents form chat and puts the latest file contents on the system prompt
+              <span className="text-Terretacode-elements-textPrimary">Usar Optimización de Contexto</span>
+              <p className="text-sm text-Terretacode-elements-textSecondary">
+                Redacta el contenido del archivo desde el chat y coloca el contenido más reciente del archivo en el
+                mensaje del sistema.
               </p>
             </div>
             <Switch
@@ -68,31 +71,31 @@ export default function FeaturesTab() {
         </div>
       </div>
 
-      <div className="mb-6 border-t border-bolt-elements-borderColor pt-4">
-        <h3 className="text-lg font-medium text-bolt-elements-textPrimary mb-4">Experimental Features</h3>
-        <p className="text-sm text-bolt-elements-textSecondary mb-10">
-          Disclaimer: Experimental features may be unstable and are subject to change.
+      <div className="mb-6 border-t border-Terretacode-elements-borderColor pt-4">
+        <h3 className="text-lg font-medium text-Terretacode-elements-textPrimary mb-4">Funciones Experimentales</h3>
+        <p className="text-sm text-Terretacode-elements-textSecondary mb-10">
+          Aviso: Las Funciones Experimentales pueden ser inestables y están sujetas a cambios.
         </p>
         <div className="flex flex-col">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-bolt-elements-textPrimary">Experimental Providers</span>
+            <span className="text-Terretacode-elements-textPrimary">Proveedor Experimental</span>
             <Switch className="ml-auto" checked={isLocalModel} onCheckedChange={enableLocalModels} />
           </div>
-          <p className="text-xs text-bolt-elements-textTertiary mb-4">
-            Enable experimental providers such as Ollama, LMStudio, and OpenAILike.
+          <p className="text-xs text-Terretacode-elements-textTertiary mb-4">
+            Habilitar Proveedores Experimentales como Ollama, LMStudio y OpenAILike.
           </p>
         </div>
         <div className="flex items-start justify-between pt-4 mb-2 gap-2">
           <div className="flex-1 max-w-[200px]">
-            <span className="text-bolt-elements-textPrimary">Prompt Library</span>
-            <p className="text-xs text-bolt-elements-textTertiary mb-4">
-              Choose a prompt from the library to use as the system prompt.
+            <span className="text-Terretacode-elements-textPrimary">Biblioteca Prompt</span>
+            <p className="text-xs text-Terretacode-elements-textTertiary mb-4">
+              Elige un mensaje de la biblioteca para usarlo como mensaje del sistema.
             </p>
           </div>
           <select
             value={promptId}
             onChange={(e) => setPromptId(e.target.value)}
-            className="flex-1 p-2 ml-auto rounded-lg border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary focus:outline-none focus:ring-2 focus:ring-bolt-elements-focus transition-all text-sm min-w-[100px]"
+            className="flex-1 p-2 ml-auto rounded-lg border border-Terretacode-elements-borderColor bg-Terretacode-elements-prompt-background text-Terretacode-elements-textPrimary focus:outline-none focus:ring-2 focus:ring-Terretacode-elements-focus transition-all text-sm min-w-[100px]"
           >
             {PromptLibrary.getList().map((x) => (
               <option key={x.id} value={x.id}>

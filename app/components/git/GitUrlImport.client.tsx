@@ -74,16 +74,16 @@ export function GitUrlImport() {
           const filesMessage: Message = {
             role: 'assistant',
             content: `Cloning the repo ${repoUrl} into ${workdir}
-<boltArtifact id="imported-files" title="Git Cloned Files" type="bundled">
+<TerretacodeArtifact id="imported-files" title="Git Cloned Files" type="bundled">
 ${fileContents
   .map(
     (file) =>
-      `<boltAction type="file" filePath="${file.path}">
+      `<TerretacodeAction type="file" filePath="${file.path}">
 ${file.content}
-</boltAction>`,
+</TerretacodeAction>`,
   )
   .join('\n')}
-</boltArtifact>`,
+</TerretacodeArtifact>`,
             id: generateId(),
             createdAt: new Date(),
           };

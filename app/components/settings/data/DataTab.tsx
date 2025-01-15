@@ -73,7 +73,7 @@ export default function DataTab() {
   };
 
   const handleDeleteAllChats = async () => {
-    const confirmDelete = window.confirm('Are you sure you want to delete all chats? This action cannot be undone.');
+    const confirmDelete = window.confirm('Are you sure you want to Borrar Chats? This action cannot be undone.');
 
     if (!confirmDelete) {
       return;
@@ -118,10 +118,10 @@ export default function DataTab() {
       selectedProvider: Cookies.get('selectedProvider'),
       githubUsername: Cookies.get('githubUsername'),
       githubToken: Cookies.get('githubToken'),
-      bolt_theme: localStorage.getItem('bolt_theme'),
+      Terretacode_theme: localStorage.getItem('Terretacode_theme'),
     };
 
-    downloadAsJson(settings, 'bolt-settings.json');
+    downloadAsJson(settings, 'Terretacode-settings.json');
     toast.success('Settings exported successfully');
   };
 
@@ -139,7 +139,7 @@ export default function DataTab() {
         const settings = JSON.parse(e.target?.result as string);
 
         Object.entries(settings).forEach(([key, value]) => {
-          if (key === 'bolt_theme') {
+          if (key === 'Terretacode_theme') {
             if (value) {
               localStorage.setItem(key, value as string);
             }
@@ -150,8 +150,8 @@ export default function DataTab() {
 
         toast.success('Settings imported successfully. Please refresh the page for changes to take effect.');
       } catch (error) {
-        toast.error('Failed to import settings. Make sure the file is a valid JSON file.');
-        console.error('Failed to import settings:', error);
+        toast.error('Failed to Importar Ajustes. Make sure the file is a valid JSON file.');
+        console.error('Failed to Importar Ajustes:', error);
       }
     };
     reader.readAsText(file);
@@ -225,8 +225,8 @@ export default function DataTab() {
           },
         );
       } catch (error) {
-        toast.error('Failed to import API keys. Make sure the file is a valid JSON file.');
-        console.error('Failed to import API keys:', error);
+        toast.error('Failed to Importar API Keys. Make sure the file is a valid JSON file.');
+        console.error('Failed to Importar API Keys:', error);
       }
     };
     reader.readAsText(file);
@@ -241,7 +241,7 @@ export default function DataTab() {
     description: string;
     urlId?: string;
   }> => {
-    // Handle Bolt standard format (single chat)
+    // Handle Terretacode standard format (single chat)
     if (data.messages && Array.isArray(data.messages)) {
       const chatId = crypto.randomUUID();
       return [
@@ -254,7 +254,7 @@ export default function DataTab() {
       ];
     }
 
-    // Handle Bolt export format (multiple chats)
+    // Handle Terretacode export format (multiple chats)
     if (data.chats && Array.isArray(data.chats)) {
       return data.chats.map((chat: { id?: string; messages: Message[]; description?: string; urlId?: string }) => ({
         id: chat.id || crypto.randomUUID(),
@@ -295,10 +295,10 @@ export default function DataTab() {
         window.location.reload();
       } catch (error) {
         if (error instanceof Error) {
-          logStore.logError('Failed to import chats:', error);
-          toast.error('Failed to import chats: ' + error.message);
+          logStore.logError('Failed to Importar Chats:', error);
+          toast.error('Failed to Importar Chats: ' + error.message);
         } else {
-          toast.error('Failed to import chats');
+          toast.error('Failed to Importar Chats');
         }
 
         console.error(error);
@@ -309,73 +309,76 @@ export default function DataTab() {
   };
 
   return (
-    <div className="p-4 bg-bolt-elements-bg-depth-2 border border-bolt-elements-borderColor rounded-lg mb-4">
+    <div className="p-4 bg-Terretacode-elements-bg-depth-2 border border-Terretacode-elements-borderColor rounded-lg mb-4">
       <div className="mb-6">
-        <h3 className="text-lg font-medium text-bolt-elements-textPrimary mb-4">Data Management</h3>
+        <h3 className="text-lg font-medium text-Terretacode-elements-textPrimary mb-4">Gestión de Datos</h3>
         <div className="space-y-8">
           <div className="flex flex-col gap-4">
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">Chat History</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">Export or delete all your chat history.</p>
+              <h4 className="text-Terretacode-elements-textPrimary mb-2">Historial de Chat</h4>
+              <p className="text-sm text-Terretacode-elements-textSecondary mb-4">
+                Exportar o eliminar todo tu Historial de Chat.
+              </p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportAllChats}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors"
                 >
-                  Export All Chats
+                  Exportar Chats
                 </button>
                 <button
                   onClick={handleImportChats}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors"
                 >
-                  Import Chats
+                  Importar Chats
                 </button>
                 <button
                   onClick={handleDeleteAllChats}
                   disabled={isDeleting}
                   className={classNames(
-                    'px-4 py-2 bg-bolt-elements-button-danger-background hover:bg-bolt-elements-button-danger-backgroundHover text-bolt-elements-button-danger-text rounded-lg transition-colors',
+                    'px-4 py-2 bg-Terretacode-elements-button-danger-background hover:bg-Terretacode-elements-button-danger-backgroundHover text-Terretacode-elements-button-danger-text rounded-lg transition-colors',
                     isDeleting ? 'opacity-50 cursor-not-allowed' : '',
                   )}
                 >
-                  {isDeleting ? 'Deleting...' : 'Delete All Chats'}
+                  {isDeleting ? 'Deleting...' : 'Borrar Chats'}
                 </button>
               </div>
             </div>
 
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">Settings Backup</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">
-                Export your settings to a JSON file or import settings from a previously exported file.
+              <h4 className="text-Terretacode-elements-textPrimary mb-2">Ajustes Backup</h4>
+              <p className="text-sm text-Terretacode-elements-textSecondary mb-4">
+                Exporta tus configuraciones a un archivo JSON o importa configuraciones desde un archivo previamente
+                exportado.
               </p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportSettings}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors"
                 >
-                  Export Settings
+                  Exportar Ajustes
                 </button>
-                <label className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors cursor-pointer">
-                  Import Settings
+                <label className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors cursor-pointer">
+                  Importar Ajustes
                   <input type="file" accept=".json" onChange={handleImportSettings} className="hidden" />
                 </label>
               </div>
             </div>
 
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">API Keys Management</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">
-                Import API keys from a JSON file or download a template to fill in your keys.
+              <h4 className="text-Terretacode-elements-textPrimary mb-2">Gestion API Keys</h4>
+              <p className="text-sm text-Terretacode-elements-textSecondary mb-4">
+                Importa claves API desde un archivo JSON o descarga una plantilla para completar con tus claves.
               </p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportApiKeyTemplate}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors"
                 >
-                  Download Template
+                  Descargar Plantilla
                 </button>
-                <label className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors cursor-pointer">
-                  Import API Keys
+                <label className="px-4 py-2 bg-Terretacode-elements-button-primary-background hover:bg-Terretacode-elements-button-primary-backgroundHover text-Terretacode-elements-textPrimary rounded-lg transition-colors cursor-pointer">
+                  Importar API Keys
                   <input type="file" accept=".json" onChange={handleImportApiKeys} className="hidden" />
                 </label>
               </div>

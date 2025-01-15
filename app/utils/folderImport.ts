@@ -38,15 +38,15 @@ export const createChatFromFolder = async (
     role: 'assistant',
     content: `I've imported the contents of the "${folderName}" folder.${binaryFilesMessage}
 
-<boltArtifact id="imported-files" title="Imported Files">
+<TerretacodeArtifact id="imported-files" title="Imported Files">
 ${fileArtifacts
   .map(
-    (file) => `<boltAction type="file" filePath="${file.path}">
+    (file) => `<TerretacodeAction type="file" filePath="${file.path}">
 ${file.content}
-</boltAction>`,
+</TerretacodeAction>`,
   )
   .join('\n\n')}
-</boltArtifact>`,
+</TerretacodeArtifact>`,
     id: generateId(),
     createdAt: new Date(),
   };

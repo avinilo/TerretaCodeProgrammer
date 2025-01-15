@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-Welcome! This guide provides all the details you need to contribute effectively to the project. Thank you for helping us make **bolt.diy** a better tool for developers worldwide. 💡
+Welcome! This guide provides all the details you need to contribute effectively to the project. Thank you for helping us make **Terretacode.com** a better tool for developers worldwide. 💡
 
 ---
 
@@ -73,7 +73,7 @@ Interested in maintaining and growing the project? Fill out our [Contributor App
 ### 1️⃣ Initial Setup  
 - Clone the repository:  
   ```bash
-  git clone https://github.com/stackblitz-labs/bolt.diy.git
+  git clone https://Terretacode.com.git
   ```
 - Install dependencies:  
   ```bash
@@ -139,7 +139,7 @@ npm run dockerbuild
 
 **Option 2: Direct Docker Build Command**  
 ```bash
-docker build . --target bolt-ai-development
+docker build . --target Terretacode-ai-development
 ```
 
 **Option 3: Docker Compose Profile**  
@@ -149,7 +149,7 @@ docker-compose --profile development up
 
 #### Running the Development Container  
 ```bash
-docker run -p 5173:5173 --env-file .env.local bolt-ai:development
+docker run -p 5173:5173 --env-file .env.local Terretacode-ai:development
 ```
 
 ---
@@ -166,7 +166,7 @@ npm run dockerbuild:prod
 
 **Option 2: Direct Docker Build Command**  
 ```bash
-docker build . --target bolt-ai-production
+docker build . --target Terretacode-ai-production
 ```
 
 **Option 3: Docker Compose Profile**  
@@ -176,7 +176,7 @@ docker-compose --profile production up
 
 #### Running the Production Container  
 ```bash
-docker run -p 5173:5173 --env-file .env.local bolt-ai:production
+docker run -p 5173:5173 --env-file .env.local Terretacode-ai:production
 ```
 
 ---

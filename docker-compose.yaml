@@ -1,10 +1,10 @@
 services:
   app-prod:
-    image: bolt-ai:production
+    image: Terretacode-ai:production
     build:
       context: .
       dockerfile: Dockerfile
-      target: bolt-ai-production
+      target: Terretacode-ai-production
     ports:
       - "5173:5173"
     env_file: ".env.local"
@@ -34,9 +34,9 @@ services:
       - production
 
   app-dev:
-    image: bolt-ai:development
+    image: Terretacode-ai:development
     build:
-      target: bolt-ai-development
+      target: Terretacode-ai-development
     environment:
       - NODE_ENV=development
       - VITE_HMR_PROTOCOL=ws

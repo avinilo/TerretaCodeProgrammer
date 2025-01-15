@@ -50,7 +50,7 @@ export default function ProvidersTab() {
     return (
       <div
         key={provider.name}
-        className="flex flex-col provider-item hover:bg-bolt-elements-bg-depth-3 p-4 rounded-lg border border-bolt-elements-borderColor"
+        className="flex flex-col provider-item hover:bg-Terretacode-elements-bg-depth-3 p-4 rounded-lg border border-Terretacode-elements-borderColor"
       >
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
@@ -62,7 +62,7 @@ export default function ProvidersTab() {
               alt={`${provider.name} icon`}
               className="w-6 h-6 dark:invert"
             />
-            <span className="text-bolt-elements-textPrimary">{provider.name}</span>
+            <span className="text-Terretacode-elements-textPrimary">{provider.name}</span>
           </div>
           <Switch
             className="ml-auto"
@@ -81,11 +81,11 @@ export default function ProvidersTab() {
         {isUrlConfigurable && provider.settings.enabled && (
           <div className="mt-2">
             {envBaseUrl && (
-              <label className="block text-xs text-bolt-elements-textSecondary text-green-300 mb-2">
+              <label className="block text-xs text-Terretacode-elements-textSecondary text-green-300 mb-2">
                 Set On (.env) : {envBaseUrl}
               </label>
             )}
-            <label className="block text-sm text-bolt-elements-textSecondary mb-2">
+            <label className="block text-sm text-Terretacode-elements-textSecondary mb-2">
               {envBaseUrl ? 'Override Base Url' : 'Base URL '}:{' '}
             </label>
             <input
@@ -105,7 +105,7 @@ export default function ProvidersTab() {
                 });
               }}
               placeholder={`Enter ${provider.name} base URL`}
-              className="w-full bg-white dark:bg-bolt-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-bolt-elements-textTertiary text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary border border-bolt-elements-borderColor"
+              className="w-full bg-white dark:bg-Terretacode-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-Terretacode-elements-textTertiary text-Terretacode-elements-textPrimary dark:text-Terretacode-elements-textPrimary border border-Terretacode-elements-borderColor"
             />
           </div>
         )}
@@ -121,10 +121,10 @@ export default function ProvidersTab() {
       <div className="flex mb-4">
         <input
           type="text"
-          placeholder="Search providers..."
+          placeholder="Buscar Proveedor..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full bg-white dark:bg-bolt-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-bolt-elements-textTertiary text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary border border-bolt-elements-borderColor"
+          className="w-full bg-white dark:bg-Terretacode-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-Terretacode-elements-textTertiary text-Terretacode-elements-textPrimary dark:text-Terretacode-elements-textPrimary border border-Terretacode-elements-borderColor"
         />
       </div>
 
@@ -134,10 +134,10 @@ export default function ProvidersTab() {
       {/* URL Configurable Providers Section */}
       {urlConfigurableProviders.length > 0 && (
         <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-2 text-bolt-elements-textPrimary">Experimental Providers</h3>
-          <p className="text-sm text-bolt-elements-textSecondary mb-4">
-            These providers are experimental and allow you to run AI models locally or connect to your own
-            infrastructure. They require additional setup but offer more flexibility.
+          <h3 className="text-lg font-semibold mb-2 text-Terretacode-elements-textPrimary">Proveedor Experimental</h3>
+          <p className="text-sm text-Terretacode-elements-textSecondary mb-4">
+            Estos proveedores son experimentales y te permiten ejecutar modelos de IA localmente o conectarte a tu
+            propia infraestructura. Requieren una configuración adicional, pero ofrecen mayor flexibilidad.
           </p>
           <div className="space-y-4">{urlConfigurableProviders.map(renderProviderCard)}</div>
         </div>

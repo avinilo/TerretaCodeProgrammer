@@ -92,8 +92,8 @@ export class WorkbenchStore {
   get showTerminal() {
     return this.#terminalStore.showTerminal;
   }
-  get boltTerminal() {
-    return this.#terminalStore.boltTerminal;
+  get TerretacodeTerminal() {
+    return this.#terminalStore.TerretacodeTerminal;
   }
   get alert() {
     return this.actionAlert;
@@ -109,8 +109,8 @@ export class WorkbenchStore {
   attachTerminal(terminal: ITerminal) {
     this.#terminalStore.attachTerminal(terminal);
   }
-  attachBoltTerminal(terminal: ITerminal) {
-    this.#terminalStore.attachBoltTerminal(terminal);
+  attachTerretacodeTerminal(terminal: ITerminal) {
+    this.#terminalStore.attachTerretacodeTerminal(terminal);
   }
 
   onTerminalResize(cols: number, rows: number) {
@@ -267,7 +267,7 @@ export class WorkbenchStore {
       type,
       runner: new ActionRunner(
         webcontainer,
-        () => this.boltTerminal,
+        () => this.TerretacodeTerminal,
         (alert) => {
           if (this.#reloadedMessages.has(messageId)) {
             return;

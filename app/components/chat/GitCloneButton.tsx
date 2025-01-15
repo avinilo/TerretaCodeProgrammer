@@ -78,16 +78,16 @@ export default function GitCloneButton({ importChat }: GitCloneButtonProps) {
           const filesMessage: Message = {
             role: 'assistant',
             content: `Cloning the repo ${repoUrl} into ${workdir}
-<boltArtifact id="imported-files" title="Git Cloned Files" type="bundled">
+<TerretacodeArtifact id="imported-files" title="Git Cloned Files" type="bundled">
 ${fileContents
   .map(
     (file) =>
-      `<boltAction type="file" filePath="${file.path}">
+      `<TerretacodeAction type="file" filePath="${file.path}">
 ${file.content}
-</boltAction>`,
+</TerretacodeAction>`,
   )
   .join('\n')}
-</boltArtifact>`,
+</TerretacodeArtifact>`,
             id: generateId(),
             createdAt: new Date(),
           };
@@ -113,11 +113,11 @@ ${file.content}
     <>
       <button
         onClick={onClick}
-        title="Clone a Git Repo"
-        className="px-4 py-2 rounded-lg border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary hover:bg-bolt-elements-background-depth-3 transition-all flex items-center gap-2"
+        title="Clonar Repositorio de Git"
+        className="px-4 py-2 rounded-lg border border-Terretacode-elements-borderColor bg-Terretacode-elements-prompt-background text-Terretacode-elements-textPrimary hover:bg-Terretacode-elements-background-depth-3 transition-all flex items-center gap-2"
       >
         <span className="i-ph:git-branch" />
-        Clone a Git Repo
+        Clonar Repositorio de Git
       </button>
       {loading && <LoadingOverlay message="Please wait while we clone the repository..." />}
     </>

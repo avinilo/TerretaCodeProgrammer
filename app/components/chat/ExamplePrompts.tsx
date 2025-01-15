@@ -1,11 +1,11 @@
 import React from 'react';
 
 const EXAMPLE_PROMPTS = [
-  { text: 'Build a todo app in React using Tailwind' },
-  { text: 'Build a simple blog using Astro' },
-  { text: 'Create a cookie consent form using Material UI' },
-  { text: 'Make a space invaders game' },
-  { text: 'Make a Tic Tac Toe game in html, css and js only' },
+  { text: 'Crea una aplicación de tareas pendientes en React usando Tailwind' },
+  { text: 'Crea un Blog simple usando Astro' },
+  { text: 'Cree un formulario de consentimiento de cookies utilizando Material UI' },
+  { text: 'Crea un juego de invasores del espacio' },
+  { text: 'Crea un juego de tres en raya solo en HTML, CSS y JS' },
 ];
 
 export function ExamplePrompts(sendMessage?: { (event: React.UIEvent, messageInput?: string): void | undefined }) {
@@ -24,7 +24,7 @@ export function ExamplePrompts(sendMessage?: { (event: React.UIEvent, messageInp
               onClick={(event) => {
                 sendMessage?.(event, examplePrompt.text);
               }}
-              className="border border-bolt-elements-borderColor rounded-full bg-gray-50 hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-900 text-bolt-elements-textSecondary hover:text-bolt-elements-textPrimary px-3 py-1 text-xs transition-theme"
+              className="border border-Terretacode-elements-borderColor rounded-full bg-gray-50 hover:bg-gray-100 dark:bg-gray-950 dark:hover:bg-gray-900 text-Terretacode-elements-textSecondary hover:text-Terretacode-elements-textPrimary px-3 py-1 text-xs transition-theme"
             >
               {examplePrompt.text}
             </button>

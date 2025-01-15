@@ -5,7 +5,7 @@ import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'uno
 
 const iconPaths = globSync('./icons/*.svg');
 
-const collectionName = 'bolt';
+const collectionName = 'Terretacode';
 
 const customIconCollection = iconPaths.reduce(
   (acc, iconPath) => {
@@ -99,12 +99,12 @@ const COLOR_PRIMITIVES = {
 
 export default defineConfig({
   safelist: [
-    ...Object.keys(customIconCollection[collectionName]||{}).map(x=>`i-bolt:${x}`)    
+    ...Object.keys(customIconCollection[collectionName]||{}).map(x=>`i-Terretacode:${x}`)    
   ],
   shortcuts: {
-    'bolt-ease-cubic-bezier': 'ease-[cubic-bezier(0.4,0,0.2,1)]',
-    'transition-theme': 'transition-[background-color,border-color,color] duration-150 bolt-ease-cubic-bezier',
-    kdb: 'bg-bolt-elements-code-background text-bolt-elements-code-text py-1 px-1.5 rounded-md',
+    'Terretacode-ease-cubic-bezier': 'ease-[cubic-bezier(0.4,0,0.2,1)]',
+    'transition-theme': 'transition-[background-color,border-color,color] duration-150 Terretacode-ease-cubic-bezier',
+    kdb: 'bg-Terretacode-elements-code-background text-Terretacode-elements-code-text py-1 px-1.5 rounded-md',
     'max-w-chat': 'max-w-[var(--chat-max-width)]',
   },
   rules: [
@@ -117,115 +117,115 @@ export default defineConfig({
   theme: {
     colors: {
       ...COLOR_PRIMITIVES,
-      bolt: {
+      Terretacode: {
         elements: {
-          borderColor: 'var(--bolt-elements-borderColor)',
-          borderColorActive: 'var(--bolt-elements-borderColorActive)',
+          borderColor: 'var(--Terretacode-elements-borderColor)',
+          borderColorActive: 'var(--Terretacode-elements-borderColorActive)',
           background: {
             depth: {
-              1: 'var(--bolt-elements-bg-depth-1)',
-              2: 'var(--bolt-elements-bg-depth-2)',
-              3: 'var(--bolt-elements-bg-depth-3)',
-              4: 'var(--bolt-elements-bg-depth-4)',
+              1: 'var(--Terretacode-elements-bg-depth-1)',
+              2: 'var(--Terretacode-elements-bg-depth-2)',
+              3: 'var(--Terretacode-elements-bg-depth-3)',
+              4: 'var(--Terretacode-elements-bg-depth-4)',
             },
           },
-          textPrimary: 'var(--bolt-elements-textPrimary)',
-          textSecondary: 'var(--bolt-elements-textSecondary)',
-          textTertiary: 'var(--bolt-elements-textTertiary)',
+          textPrimary: 'var(--Terretacode-elements-textPrimary)',
+          textSecondary: 'var(--Terretacode-elements-textSecondary)',
+          textTertiary: 'var(--Terretacode-elements-textTertiary)',
           code: {
-            background: 'var(--bolt-elements-code-background)',
-            text: 'var(--bolt-elements-code-text)',
+            background: 'var(--Terretacode-elements-code-background)',
+            text: 'var(--Terretacode-elements-code-text)',
           },
           button: {
             primary: {
-              background: 'var(--bolt-elements-button-primary-background)',
-              backgroundHover: 'var(--bolt-elements-button-primary-backgroundHover)',
-              text: 'var(--bolt-elements-button-primary-text)',
+              background: 'var(--Terretacode-elements-button-primary-background)',
+              backgroundHover: 'var(--Terretacode-elements-button-primary-backgroundHover)',
+              text: 'var(--Terretacode-elements-button-primary-text)',
             },
             secondary: {
-              background: 'var(--bolt-elements-button-secondary-background)',
-              backgroundHover: 'var(--bolt-elements-button-secondary-backgroundHover)',
-              text: 'var(--bolt-elements-button-secondary-text)',
+              background: 'var(--Terretacode-elements-button-secondary-background)',
+              backgroundHover: 'var(--Terretacode-elements-button-secondary-backgroundHover)',
+              text: 'var(--Terretacode-elements-button-secondary-text)',
             },
             danger: {
-              background: 'var(--bolt-elements-button-danger-background)',
-              backgroundHover: 'var(--bolt-elements-button-danger-backgroundHover)',
-              text: 'var(--bolt-elements-button-danger-text)',
+              background: 'var(--Terretacode-elements-button-danger-background)',
+              backgroundHover: 'var(--Terretacode-elements-button-danger-backgroundHover)',
+              text: 'var(--Terretacode-elements-button-danger-text)',
             },
           },
           item: {
-            contentDefault: 'var(--bolt-elements-item-contentDefault)',
-            contentActive: 'var(--bolt-elements-item-contentActive)',
-            contentAccent: 'var(--bolt-elements-item-contentAccent)',
-            contentDanger: 'var(--bolt-elements-item-contentDanger)',
-            backgroundDefault: 'var(--bolt-elements-item-backgroundDefault)',
-            backgroundActive: 'var(--bolt-elements-item-backgroundActive)',
-            backgroundAccent: 'var(--bolt-elements-item-backgroundAccent)',
-            backgroundDanger: 'var(--bolt-elements-item-backgroundDanger)',
+            contentDefault: 'var(--Terretacode-elements-item-contentDefault)',
+            contentActive: 'var(--Terretacode-elements-item-contentActive)',
+            contentAccent: 'var(--Terretacode-elements-item-contentAccent)',
+            contentDanger: 'var(--Terretacode-elements-item-contentDanger)',
+            backgroundDefault: 'var(--Terretacode-elements-item-backgroundDefault)',
+            backgroundActive: 'var(--Terretacode-elements-item-backgroundActive)',
+            backgroundAccent: 'var(--Terretacode-elements-item-backgroundAccent)',
+            backgroundDanger: 'var(--Terretacode-elements-item-backgroundDanger)',
           },
           actions: {
-            background: 'var(--bolt-elements-actions-background)',
+            background: 'var(--Terretacode-elements-actions-background)',
             code: {
-              background: 'var(--bolt-elements-actions-code-background)',
+              background: 'var(--Terretacode-elements-actions-code-background)',
             },
           },
           artifacts: {
-            background: 'var(--bolt-elements-artifacts-background)',
-            backgroundHover: 'var(--bolt-elements-artifacts-backgroundHover)',
-            borderColor: 'var(--bolt-elements-artifacts-borderColor)',
+            background: 'var(--Terretacode-elements-artifacts-background)',
+            backgroundHover: 'var(--Terretacode-elements-artifacts-backgroundHover)',
+            borderColor: 'var(--Terretacode-elements-artifacts-borderColor)',
             inlineCode: {
-              background: 'var(--bolt-elements-artifacts-inlineCode-background)',
-              text: 'var(--bolt-elements-artifacts-inlineCode-text)',
+              background: 'var(--Terretacode-elements-artifacts-inlineCode-background)',
+              text: 'var(--Terretacode-elements-artifacts-inlineCode-text)',
             },
           },
           messages: {
-            background: 'var(--bolt-elements-messages-background)',
-            linkColor: 'var(--bolt-elements-messages-linkColor)',
+            background: 'var(--Terretacode-elements-messages-background)',
+            linkColor: 'var(--Terretacode-elements-messages-linkColor)',
             code: {
-              background: 'var(--bolt-elements-messages-code-background)',
+              background: 'var(--Terretacode-elements-messages-code-background)',
             },
             inlineCode: {
-              background: 'var(--bolt-elements-messages-inlineCode-background)',
-              text: 'var(--bolt-elements-messages-inlineCode-text)',
+              background: 'var(--Terretacode-elements-messages-inlineCode-background)',
+              text: 'var(--Terretacode-elements-messages-inlineCode-text)',
             },
           },
           icon: {
-            success: 'var(--bolt-elements-icon-success)',
-            error: 'var(--bolt-elements-icon-error)',
-            primary: 'var(--bolt-elements-icon-primary)',
-            secondary: 'var(--bolt-elements-icon-secondary)',
-            tertiary: 'var(--bolt-elements-icon-tertiary)',
+            success: 'var(--Terretacode-elements-icon-success)',
+            error: 'var(--Terretacode-elements-icon-error)',
+            primary: 'var(--Terretacode-elements-icon-primary)',
+            secondary: 'var(--Terretacode-elements-icon-secondary)',
+            tertiary: 'var(--Terretacode-elements-icon-tertiary)',
           },
           preview: {
             addressBar: {
-              background: 'var(--bolt-elements-preview-addressBar-background)',
-              backgroundHover: 'var(--bolt-elements-preview-addressBar-backgroundHover)',
-              backgroundActive: 'var(--bolt-elements-preview-addressBar-backgroundActive)',
-              text: 'var(--bolt-elements-preview-addressBar-text)',
-              textActive: 'var(--bolt-elements-preview-addressBar-textActive)',
+              background: 'var(--Terretacode-elements-preview-addressBar-background)',
+              backgroundHover: 'var(--Terretacode-elements-preview-addressBar-backgroundHover)',
+              backgroundActive: 'var(--Terretacode-elements-preview-addressBar-backgroundActive)',
+              text: 'var(--Terretacode-elements-preview-addressBar-text)',
+              textActive: 'var(--Terretacode-elements-preview-addressBar-textActive)',
             },
           },
           terminals: {
-            background: 'var(--bolt-elements-terminals-background)',
-            buttonBackground: 'var(--bolt-elements-terminals-buttonBackground)',
+            background: 'var(--Terretacode-elements-terminals-background)',
+            buttonBackground: 'var(--Terretacode-elements-terminals-buttonBackground)',
           },
-          dividerColor: 'var(--bolt-elements-dividerColor)',
+          dividerColor: 'var(--Terretacode-elements-dividerColor)',
           loader: {
-            background: 'var(--bolt-elements-loader-background)',
-            progress: 'var(--bolt-elements-loader-progress)',
+            background: 'var(--Terretacode-elements-loader-background)',
+            progress: 'var(--Terretacode-elements-loader-progress)',
           },
           prompt: {
-            background: 'var(--bolt-elements-prompt-background)',
+            background: 'var(--Terretacode-elements-prompt-background)',
           },
           sidebar: {
-            dropdownShadow: 'var(--bolt-elements-sidebar-dropdownShadow)',
-            buttonBackgroundDefault: 'var(--bolt-elements-sidebar-buttonBackgroundDefault)',
-            buttonBackgroundHover: 'var(--bolt-elements-sidebar-buttonBackgroundHover)',
-            buttonText: 'var(--bolt-elements-sidebar-buttonText)',
+            dropdownShadow: 'var(--Terretacode-elements-sidebar-dropdownShadow)',
+            buttonBackgroundDefault: 'var(--Terretacode-elements-sidebar-buttonBackgroundDefault)',
+            buttonBackgroundHover: 'var(--Terretacode-elements-sidebar-buttonBackgroundHover)',
+            buttonText: 'var(--Terretacode-elements-sidebar-buttonText)',
           },
           cta: {
-            background: 'var(--bolt-elements-cta-background)',
-            text: 'var(--bolt-elements-cta-text)',
+            background: 'var(--Terretacode-elements-cta-background)',
+            text: 'var(--Terretacode-elements-cta-text)',
           },
         },
       },

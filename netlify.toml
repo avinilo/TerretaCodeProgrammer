@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build" # Comando para construir el proyecto
+  publish = "build/client"  # Directorio donde se generarán los archivos estáticos
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
