@@ -6,10 +6,11 @@ import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import * as dotenv from 'dotenv';
 import { execSync } from 'child_process';
+import { viteStaticCopy } from 'vite-plugin-static-copy'; // Uso correcto del plugin estático de copia
 
 dotenv.config();
 
-// Get git hash with fallback
+// Obtener el hash del commit de git con un fallback
 const getGitHash = () => {
   try {
     return execSync('git rev-parse --short HEAD').toString().trim();
@@ -18,15 +19,11 @@ const getGitHash = () => {
   }
 };
 
-
-
-
 export default defineConfig((config) => {
   return {
     define: {
       __COMMIT_HASH: JSON.stringify(getGitHash()),
       __APP_VERSION: JSON.stringify(process.env.npm_package_version),
-      // 'process.env': JSON.stringify(process.env)
     },
     build: {
       target: 'esnext',
@@ -41,15 +38,23 @@ export default defineConfig((config) => {
           v3_fetcherPersist: true,
           v3_relativeSplatPath: true,
           v3_throwAbortReason: true,
-          v3_lazyRouteDiscovery: true
+          v3_lazyRouteDiscovery: true,
         },
       }),
       UnoCSS(),
       tsconfigPaths(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: '_redirects',
+            dest: './', // Asegura que se copie en el directorio de publicación
+          },
+        ],
+      }),
       chrome129IssuePlugin(),
       config.mode === 'production' && optimizeCssModules({ apply: 'build' }),
     ],
-    envPrefix: ["VITE_","OPENAI_LIKE_API_BASE_URL", "OLLAMA_API_BASE_URL", "LMSTUDIO_API_BASE_URL","TOGETHER_API_BASE_URL"],
+    envPrefix: ["VITE_", "OPENAI_LIKE_API_BASE_URL", "OLLAMA_API_BASE_URL", "LMSTUDIO_API_BASE_URL", "TOGETHER_API_BASE_URL"],
     css: {
       preprocessorOptions: {
         scss: {
